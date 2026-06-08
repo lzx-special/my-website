@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>lukyyy</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- 背景音乐 -->
+
+<audio id="bgm" loop>
+    <source src="music/bgm.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 顶部导航 -->
+
+<nav>
+
+<button onclick="showPage('home')">
+    Home
+</button>
+
+<button onclick="showPage('photo')">
+    Photo
+</button>
+
+<button onclick="showPage('note')">
+    Note
+</button>
+
+<button id="musicBtn" onclick="toggleMusic()">
+    ▶
+</button>
+
+
+</nav>
+
+<!-- Home -->
+
+<div id="home" class="page active">
+
+
+<div class="welcome">
+
+    <h1>🌸 hihihi, my lucky pal 🌸</h1>
+
+</div>
+
+
+</div>
+
+<!-- Photo -->
+
+<div id="photo" class="page">
+
+
+<div class="card">
+
+    <h2>📷 My Photos</h2>
+
+    <div class="gallery">
+
+        <img src="images/photo1.jpg">
+
+        <img src="images/photo2.jpg">
+
+        <img src="images/photo3.jpg">
+
+    </div>
+
+</div>
+
+
+</div>
+
+<!-- Note -->
+
+<div id="note" class="page">
+
+
+<div class="card">
+
+    <h2>✍ My Notes</h2>
+
+    <p>
+        Today is a beautiful day.
+    </p>
+
+    <p>
+        I finally built my own website.
+    </p>
+
+</div>
+
+
+</div>
+
+<script>
+
+function showPage(pageId){
+
+    document
+    .querySelectorAll(".page")
+    .forEach(page=>{
+
+        page.classList.remove("active");
+
+    });
+
+    document
+    .getElementById(pageId)
+    .classList.add("active");
+
+}
+
+const bgm=document.getElementById("bgm");
+
+function toggleMusic(){
+
+    if(bgm.paused){
+
+        bgm.play();
+
+        document
+        .getElementById("musicBtn")
+        .innerHTML="❚❚";
+
+    }else{
+
+        bgm.pause();
+
+        document
+        .getElementById("musicBtn")
+        .innerHTML="▶";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
